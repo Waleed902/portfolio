@@ -4,7 +4,46 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Muhammad Waleed // Cybersecurity & Digital Forensics</title>
-<meta name="description" content="Offensive security, red teaming, and digital forensics portfolio of Muhammad Waleed." />
+<meta name="description" content="Muhammad Waleed's offensive security, AI security, and digital forensics portfolio—featuring Cyber-CoPilot, FlagSniff, CTF achievements, and security research." />
+<meta name="author" content="Muhammad Waleed" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#f1f1f1" />
+<link rel="canonical" href="https://waleed902.github.io/portfolio/" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Muhammad Waleed // Security Portfolio" />
+<meta property="og:title" content="Muhammad Waleed // Offensive Security & Digital Forensics" />
+<meta property="og:description" content="Security researcher building agentic offensive-security and network-forensics systems." />
+<meta property="og:url" content="https://waleed902.github.io/portfolio/" />
+<meta property="og:image" content="https://waleed902.github.io/portfolio/assets/og-card.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Muhammad Waleed cybersecurity portfolio preview" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Muhammad Waleed // Security Portfolio" />
+<meta name="twitter:description" content="Offensive security, agentic AI, and digital forensics projects." />
+<meta name="twitter:image" content="https://waleed902.github.io/portfolio/assets/og-card.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Muhammad Waleed",
+  "jobTitle": "Cybersecurity and Digital Forensics Specialist",
+  "url": "https://waleed902.github.io/portfolio/",
+  "email": "mailto:mr.waleed902@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lahore",
+    "addressCountry": "PK"
+  },
+  "sameAs": [
+    "https://github.com/Waleed902",
+    "https://linkedin.com/in/waleed902"
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,6 +84,16 @@ body {
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
 img { display: block; max-width: 100%; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.skip-link {
+  position: fixed; top: 8px; left: 8px; z-index: 20000;
+  transform: translateY(-160%);
+  background: #111; color: #fff; border: 1px solid var(--accent);
+  padding: 10px 14px; font-size: 10px; letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.skip-link:focus { transform: translateY(0); }
 
 /* ============ FILM GRAIN ============ */
 .grain {
@@ -258,16 +307,73 @@ img { display: block; max-width: 100%; }
 }
 .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
-/* Node cluster */
+/* 3D operator laptop */
 .node-cluster {
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.45);
+  background:
+    linear-gradient(rgba(255,255,255,0.28), rgba(255,255,255,0.06)),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(17,17,17,0.035) 31px 32px),
+    repeating-linear-gradient(90deg, transparent 0 31px, rgba(17,17,17,0.035) 31px 32px),
+    rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   position: relative;
   min-height: 460px;
   overflow: hidden;
 }
 .node-cluster-canvas { position: absolute; inset: 0; }
+.node-cluster-canvas canvas { position: relative; z-index: 2; width: 100%; height: 100%; display: block; }
+.laptop-fallback {
+  position: absolute; inset: 42px 28px 56px; z-index: 1;
+  display: grid; place-items: center; perspective: 900px;
+  transition: opacity 0.25s ease;
+}
+.node-cluster-canvas.webgl-ready .laptop-fallback { opacity: 0; }
+.laptop-fallback-device {
+  width: min(92%, 490px);
+  transform-style: preserve-3d;
+  transform: rotateX(-2deg) rotateY(-9deg) translateY(-10px);
+  filter: drop-shadow(24px 30px 22px rgba(17,17,17,0.22));
+}
+.laptop-fallback-lid {
+  padding: 10px;
+  background: linear-gradient(145deg, #242424, #080808);
+  border: 1px solid var(--accent);
+  transform-origin: center bottom;
+  transform: rotateX(-3deg);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08), 0 0 34px rgba(255,90,0,0.16);
+}
+.laptop-fallback-screen {
+  position: relative; overflow: hidden;
+  aspect-ratio: 2048 / 965;
+  background: #202129;
+  border: 1px solid rgba(255,90,0,0.68);
+}
+.laptop-fallback-screen img { width: 100%; height: 100%; object-fit: cover; }
+.laptop-fallback-screen::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(110deg, rgba(255,255,255,0.13), transparent 25%, transparent 72%, rgba(255,90,0,0.08));
+  mix-blend-mode: screen;
+}
+.laptop-fallback-deck {
+  position: relative; height: 118px; margin: -1px 2% 0;
+  background: linear-gradient(180deg, #2a2a2a, #111);
+  border: 1px solid rgba(255,90,0,0.72);
+  transform-origin: center top;
+  transform: rotateX(65deg);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+.laptop-fallback-deck::before {
+  content: ''; position: absolute; left: 8%; right: 8%; top: 11px; height: 54px;
+  background:
+    repeating-linear-gradient(90deg, #0a0a0a 0 20px, transparent 20px 24px),
+    repeating-linear-gradient(0deg, transparent 0 12px, rgba(255,90,0,0.45) 12px 13px);
+  border: 1px solid rgba(255,90,0,0.35);
+}
+.laptop-fallback-deck::after {
+  content: ''; position: absolute; left: 38%; right: 38%; bottom: 10px; height: 28px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: #202020;
+}
 .node-cluster-overlay {
   position: absolute; inset: 0;
   pointer-events: none;
@@ -299,6 +405,12 @@ img { display: block; max-width: 100%; }
   border: 1px solid var(--line);
 }
 .node-readout span:first-child { color: var(--accent); }
+.node-scanline {
+  position: absolute; left: 0; right: 0; top: -20%; height: 22%;
+  background: linear-gradient(to bottom, transparent, rgba(255,90,0,0.08), transparent);
+  animation: operatorScan 4.8s linear infinite;
+}
+@keyframes operatorScan { to { transform: translateY(560%); } }
 
 /* Counter strip */
 .hero-counter-strip {
@@ -851,9 +963,13 @@ img { display: block; max-width: 100%; }
   .portfolio, .certs, .project-detail, .cta { padding-left: 16px; padding-right: 16px; }
   .nav { padding: 0 12px; gap: 12px; }
   .nav-right .btn-ghost { display: none; }
-  .bento { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 140px; }
+  .bento { grid-template-columns: repeat(6, 1fr); grid-auto-rows: auto; }
   .card-featured, .card-wide-3, .card-wide-4 { grid-column: span 6; }
-  .card-tall { grid-row: span 2; }
+  .card, .card-tall { grid-row: auto; min-height: 260px; }
+  .card-featured { min-height: 430px; }
+  .card-stat-block { min-height: 190px; }
+  .card-chrome { min-height: 360px; }
+  .card-stats { grid-template-columns: repeat(2, 1fr) !important; }
   .certs-grid { grid-template-columns: repeat(2, 1fr); }
   .timeline { grid-template-columns: 1fr; }
   .footer { grid-template-columns: 1fr; text-align: left; }
@@ -862,18 +978,35 @@ img { display: block; max-width: 100%; }
   .hero-counter { border-right: none; border-bottom: 1px solid var(--line); }
   .hero-counter:last-child { border-bottom: none; }
   .filters-row { grid-template-columns: 1fr; }
+  .filter-tabs { overflow-x: auto; max-width: 100%; scrollbar-width: thin; }
+  .filter-tab { flex: 0 0 auto; }
   .search-field { width: 100%; }
   .hero-meta-top-left { gap: 16px; }
   .section-head-meta { gap: 16px; flex-wrap: wrap; }
+  .node-cluster { min-height: 400px; }
+  .node-readout { font-size: 8px; }
+  .hero-headline-wrap { padding-left: 14px; }
+  .hero-headline { word-break: normal; overflow-wrap: anywhere; }
+}
+@media (max-width: 430px) {
+  .nav-logo span { display: none; }
+  .nav-logo { font-size: 10px; }
+  .nav-right { gap: 6px; }
+  .btn-pill, .btn-ghost { padding: 8px 10px; }
+  .hero-label-row .tag { letter-spacing: 0.12em; }
+  .certs-grid { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   .ticker-track { animation: none; }
   .chrome-bg, .chrome-shine { animation: none; }
+  .node-scanline { animation: none; display: none; }
 }
 </style>
 </head>
 <body>
+
+<a class="skip-link" href="#operations">Skip to main content</a>
 
 <!-- FILM GRAIN -->
 <svg class="grain" xmlns="http://www.w3.org/2000/svg">
@@ -900,7 +1033,7 @@ img { display: block; max-width: 100%; }
 </div>
 
 <!-- NAV -->
-<nav class="nav">
+<nav class="nav" aria-label="Primary navigation">
   <div class="nav-logo">
     <div class="nav-logo-mark">W</div>
     MUHAMMAD WALEED<span>// SEC.ENG</span>
@@ -913,7 +1046,7 @@ img { display: block; max-width: 100%; }
     <a href="#contact" class="nav-link">Contact</a>
   </div>
   <div class="nav-right">
-    <a href="https://github.com/Waleed902" target="_blank" class="btn-ghost">GitHub</a>
+    <a href="assets/Muhammad_Waleed_Resume.pdf" download class="btn-ghost">Résumé ↓</a>
     <a href="#contact" class="btn-pill">Contact →</a>
   </div>
 </nav>
@@ -972,41 +1105,54 @@ img { display: block; max-width: 100%; }
           <span class="tag accent">Portfolio · 2026</span>
           <span class="tag">5 Certifications</span>
           <span class="tag">2 Major Projects</span>
-          <span class="tag">3 CTF Wins</span>
+          <span class="tag">3 CTF Podiums</span>
         </div>
         <h1 class="hero-headline pixel" id="heroHeadline">OPERATIONS</h1>
         <p class="hero-subline">
-          Cybersecurity and Digital Forensics specialist with hands-on
-          experience in penetration testing, red teaming, and forensic
-          analysis. Developer of Cyber-CoPilot (multi-agent framework) and
-          FlagSniff (RAG-integrated network forensics tool). Proven CTF Team
-          Lead with multiple national first-place finishes. Skilled in Python,
-          Agentic AI, and vulnerability assessment.
+          Offensive security and Digital Forensics specialist building practical
+          AI-assisted security systems. Cyber-CoPilot spans 149 Python modules,
+          approximately 70,500 lines, ten specialist agents, and 60+ integrated
+          security tools; FlagSniff applies tool-using AI and RAG to PCAP
+          investigation. CTF team lead with two first-place finishes and one
+          national runner-up result.
         </p>
         <div class="hero-actions">
           <a href="#arsenal" class="btn-pill">View Arsenal →</a>
-          <a href="https://github.com/Waleed902" target="_blank" class="btn-ghost">GitHub Profile</a>
+          <a href="assets/Muhammad_Waleed_Resume.pdf" download class="btn-ghost">Download Résumé ↓</a>
+          <a href="https://github.com/Waleed902" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub Profile</a>
         </div>
       </div>
     </div>
     
-    <div class="node-cluster">
-      <div class="node-cluster-canvas" id="nodeCanvas"></div>
+    <div class="node-cluster" aria-label="Interactive 3D operator laptop displaying the Cyber-CoPilot interface">
+      <div class="node-cluster-canvas" id="nodeCanvas" role="img" aria-label="3D security operator laptop displaying the Cyber-CoPilot dashboard">
+        <div class="laptop-fallback" aria-hidden="true">
+          <div class="laptop-fallback-device">
+            <div class="laptop-fallback-lid">
+              <div class="laptop-fallback-screen">
+                <img src="assets/cyber-copilot-dashboard.png" alt="" />
+              </div>
+            </div>
+            <div class="laptop-fallback-deck"></div>
+          </div>
+        </div>
+      </div>
+      <div class="node-scanline" aria-hidden="true"></div>
       <div class="node-cluster-overlay">
         <div class="node-corner">
-          <span><span class="dot"></span>NEURAL.MAP // ACTIVE</span>
+          <span><span class="dot"></span>OPERATOR.DECK // ONLINE</span>
           <span id="nodeTime">00:00:00</span>
         </div>
         <div class="node-corner">
-          <span>NODES: 14</span>
-          <span>LINKS: 28</span>
+          <span>SESSION: CC-01</span>
+          <span>SCOPE: LOCKED</span>
         </div>
       </div>
       <div class="node-readout">
-        <span>// LIVE TELEMETRY</span>
-        <span id="nodePulse">PULSE 0.84</span>
-        <span>ENTROPY 6.21</span>
-        <span>INTEGRITY ✓</span>
+        <span>// LIVE SESSION</span>
+        <span id="nodePulse">AGENTS 10 // READY</span>
+        <span>TOOLS 60+ // MAPPED</span>
+        <span>HUMAN GATE ✓</span>
       </div>
     </div>
   </div>
@@ -1014,7 +1160,7 @@ img { display: block; max-width: 100%; }
   <div class="hero-counter-strip">
     <div class="hero-counter">
       <span class="hero-counter-tag">01</span>
-      <span class="hero-counter-label">CTF Wins</span>
+      <span class="hero-counter-label">CTF Podiums</span>
       <span class="hero-counter-value accent" data-count="3">0</span>
       <span class="hero-counter-sub">1st Place x2 · Runner-Up x1</span>
     </div>
@@ -1032,9 +1178,9 @@ img { display: block; max-width: 100%; }
     </div>
     <div class="hero-counter">
       <span class="hero-counter-tag">04</span>
-      <span class="hero-counter-label">Tools Mastered</span>
-      <span class="hero-counter-value accent" data-count="7" data-suffix="+">0</span>
-      <span class="hero-counter-sub">Pentest · Forensics · AI</span>
+      <span class="hero-counter-label">Integrated Tools</span>
+      <span class="hero-counter-value accent" data-count="60" data-suffix="+">0</span>
+      <span class="hero-counter-sub">MITRE-mapped security stack</span>
     </div>
   </div>
 </header>
@@ -1049,7 +1195,7 @@ img { display: block; max-width: 100%; }
     <div class="section-head-meta">
       <div>
         <span class="label" style="color:var(--muted)">Total Entries</span>
-        <span class="mono" style="font-size:16px">06 Items</span>
+        <span class="mono" style="font-size:16px" id="entryCount">10 Items</span>
       </div>
       <div>
         <span class="label" style="color:var(--muted)">Filter</span>
@@ -1064,11 +1210,11 @@ img { display: block; max-width: 100%; }
 
   <div class="filters-row">
     <div class="filter-tabs" id="filterTabs">
-      <button class="filter-tab active" data-filter="all">All <span class="count">06</span></button>
-      <button class="filter-tab" data-filter="offensive">Offensive <span class="count">03</span></button>
-      <button class="filter-tab" data-filter="forensics">Forensics <span class="count">01</span></button>
-      <button class="filter-tab" data-filter="ai">AI Sec <span class="count">01</span></button>
-      <button class="filter-tab" data-filter="research">Research <span class="count">01</span></button>
+      <button class="filter-tab active" data-filter="all" aria-pressed="true">All <span class="count">10</span></button>
+      <button class="filter-tab" data-filter="offensive" aria-pressed="false">Offensive <span class="count">03</span></button>
+      <button class="filter-tab" data-filter="forensics" aria-pressed="false">Forensics <span class="count">02</span></button>
+      <button class="filter-tab" data-filter="ai" aria-pressed="false">AI Sec <span class="count">03</span></button>
+      <button class="filter-tab" data-filter="research" aria-pressed="false">Research <span class="count">02</span></button>
     </div>
     <div></div>
     <div class="search-field">
@@ -1090,31 +1236,30 @@ img { display: block; max-width: 100%; }
       <div>
         <h3 class="card-title">CYBER-COPILOT</h3>
         <p class="card-desc">
-          Red team-focused multi-agent framework in Python/NLP with Intelligent
-          Model Orchestrator supporting DeepSeek, Gemini, and Dolphin models.
-          Includes cross-platform tool validation and seamless integration of
-          agentic AI for offensive security operations.
+          Terminal-native offensive-security framework with ten specialist agents,
+          ReAct execution, persistent target memory, seven-strategy failure
+          recovery, human approval gates, and automated Markdown/PDF reporting.
         </p>
       </div>
       <div class="card-stats">
         <div class="card-stat">
-          <span class="card-stat-label">Models Supported</span>
-          <span class="card-stat-value accent">3</span>
+          <span class="card-stat-label">Python Modules</span>
+          <span class="card-stat-value accent">149</span>
         </div>
         <div class="card-stat">
-          <span class="card-stat-label">Architecture</span>
-          <span class="card-stat-value">Agentic</span>
+          <span class="card-stat-label">Codebase</span>
+          <span class="card-stat-value">70.5K LOC</span>
         </div>
         <div class="card-stat">
-          <span class="card-stat-label">Language</span>
-          <span class="card-stat-value">Python</span>
+          <span class="card-stat-label">Integrated Tools</span>
+          <span class="card-stat-value">60+</span>
         </div>
         <div class="card-stat">
-          <span class="card-stat-label">Focus</span>
-          <span class="card-stat-value accent">Red Team</span>
+          <span class="card-stat-label">Specialist Agents</span>
+          <span class="card-stat-value accent">10</span>
         </div>
       </div>
-      <a href="https://github.com/Waleed902/Cyber-Copilot" target="_blank" class="card-arrow">View on GitHub →</a>
+      <a href="https://github.com/Waleed902/Cyber-Copilot" target="_blank" rel="noopener noreferrer" class="card-arrow">View on GitHub →</a>
     </article>
 
     <article class="card card-wide-3 card-tall" data-category="forensics">
@@ -1126,8 +1271,9 @@ img { display: block; max-width: 100%; }
       <div>
         <h3 class="card-title">FLAGSNIFF</h3>
         <p class="card-desc">
-          Network Traffic Forensics tool for PCAP analysis; integrates AI-driven
-          RAG for automated forensic workflows and real-time CTF challenge solving.
+          Python desktop PCAP-analysis platform combining automated threat
+          detection, stream reconstruction, tool-using AI, RAG-assisted
+          investigation, recovery controls, visualization, and report export.
         </p>
       </div>
       <div class="card-stats" style="grid-template-columns:repeat(2,1fr)">
@@ -1148,6 +1294,7 @@ img { display: block; max-width: 100%; }
           <span class="card-stat-value accent">Real-time</span>
         </div>
       </div>
+      <a href="projects/FlagSniff_Technical_Documentation.md" download class="card-arrow">Download Technical Brief ↓</a>
     </article>
 
     <div class="card card-stat-block" data-category="research">
@@ -1263,7 +1410,7 @@ img { display: block; max-width: 100%; }
             <div class="label" style="color:rgba(255,255,255,0.6)">Wins</div>
             <div style="font-family:'DotGothic16';font-size:36px;color:#fff;line-height:1">02</div>
           </div>
-          <a href="#" class="card-arrow" style="color:#fff">View Record →</a>
+          <a href="https://linkedin.com/in/waleed902" target="_blank" rel="noopener noreferrer" class="card-arrow" style="color:#fff">View Profile →</a>
         </div>
       </div>
     </article>
@@ -1445,20 +1592,21 @@ img { display: block; max-width: 100%; }
     </div>
     <div class="detail-head-right">
       <p class="detail-desc">
-        Cyber-CoPilot is a red team-focused multi-agent framework built in
-        Python with deep NLP integration. It acts as an Intelligent Model
-        Orchestrator, leveraging the capabilities of DeepSeek, Gemini, and
-        Dolphin models to automate and augment offensive security operations.
+        Cyber-CoPilot is a terminal-native offensive-security framework built as
+        149 Python modules and approximately 70,500 lines of code. A central
+        orchestrator routes work to ten specialist agents and exposes more than
+        60 MITRE-mapped security tools through transparent ReAct execution loops.
       </p>
       <p class="detail-desc">
-        The framework includes cross-platform tool validation, ensuring that
-        agentic AI operations can be securely and reliably executed across
-        different environments. It bridges the gap between Large Language
-        Models and hands-on keyboard red teaming.
+        Persistent target memory prevents duplicate work; a seven-strategy
+        recovery engine handles tool failures and blocked requests; scope
+        enforcement and human approval gates retain operator control. Findings
+        flow into client-ready Markdown and PDF reports with severity charts,
+        executive summaries, and MITRE ATT&CK alignment.
       </p>
       <div class="detail-actions">
-        <a href="https://github.com/Waleed902/Cyber-Copilot" target="_blank" class="detail-link">↗ GitHub Repo</a>
-        <a href="https://github.com/Waleed902" target="_blank" class="detail-link">↗ More Projects</a>
+        <a href="https://github.com/Waleed902/Cyber-Copilot" target="_blank" rel="noopener noreferrer" class="detail-link">↗ GitHub Repo</a>
+        <a href="https://github.com/Waleed902" target="_blank" rel="noopener noreferrer" class="detail-link">↗ More Projects</a>
       </div>
     </div>
   </div>
@@ -1492,62 +1640,62 @@ img { display: block; max-width: 100%; }
         </div>
         <div class="timeline-stage">
           <div class="timeline-stage-num">[02]</div>
-          <div class="timeline-stage-name">Model Layer</div>
+          <div class="timeline-stage-name">Agent Mesh</div>
           <div class="timeline-row">
-            <span class="timeline-row-label"> dolphin</span>
-            <span class="timeline-row-value ok">Active</span>
+            <span class="timeline-row-label">Specialists</span>
+            <span class="timeline-row-value ok">10</span>
           </div>
           <div class="timeline-row">
-            <span class="timeline-row-label">DeepSeek</span>
-            <span class="timeline-row-value ok">Active</span>
+            <span class="timeline-row-label">DiscoveryBus</span>
+            <span class="timeline-row-value ok">9 Types</span>
           </div>
           <div class="timeline-row">
-            <span class="timeline-row-label">Gemini</span>
-            <span class="timeline-row-value ok">Active</span>
+            <span class="timeline-row-label">Memory</span>
+            <span class="timeline-row-value ok">ChromaDB</span>
           </div>
           <div class="timeline-row">
-            <span class="timeline-row-label">Fallback</span>
-            <span class="timeline-row-value accent">Supported</span>
+            <span class="timeline-row-label">Context</span>
+            <span class="timeline-row-value accent">Persistent</span>
           </div>
         </div>
         <div class="timeline-stage">
           <div class="timeline-stage-num">[03]</div>
-          <div class="timeline-stage-name">Validation</div>
+          <div class="timeline-stage-name">Resilience</div>
           <div class="timeline-row">
-            <span class="timeline-row-label">Cross-Platform</span>
-            <span class="timeline-row-value ok">Enabled</span>
+            <span class="timeline-row-label">Recovery</span>
+            <span class="timeline-row-value ok">7 Strategies</span>
           </div>
           <div class="timeline-row">
-            <span class="timeline-row-label">Tool Safety</span>
-            <span class="timeline-row-value">Verified</span>
+            <span class="timeline-row-label">Loops</span>
+            <span class="timeline-row-value">Detected</span>
           </div>
           <div class="timeline-row">
-            <span class="timeline-row-label">Red Team</span>
-            <span class="timeline-row-value accent">Context Aware</span>
+            <span class="timeline-row-label">Scope</span>
+            <span class="timeline-row-value accent">Enforced</span>
           </div>
           <div class="timeline-row">
-            <span class="timeline-row-label">Execution</span>
-            <span class="timeline-row-value">Sandboxed</span>
+            <span class="timeline-row-label">Approval</span>
+            <span class="timeline-row-value">Human Gate</span>
           </div>
         </div>
         <div class="timeline-stage">
           <div class="timeline-stage-num">[04]</div>
-          <div class="timeline-stage-name">Objective</div>
+          <div class="timeline-stage-name">Output</div>
           <div class="timeline-row">
-            <span class="timeline-row-label">Focus</span>
-            <span class="timeline-row-value">Red Team Ops</span>
+            <span class="timeline-row-label">Tools</span>
+            <span class="timeline-row-value">60+</span>
           </div>
           <div class="timeline-row">
-            <span class="timeline-row-label">Automation</span>
-            <span class="timeline-row-value ok">Achieved</span>
+            <span class="timeline-row-label">Reports</span>
+            <span class="timeline-row-value ok">PDF + MD</span>
           </div>
           <div class="timeline-row">
-            <span class="timeline-row-label">Efficiency</span>
-            <span class="timeline-row-value accent">High</span>
+            <span class="timeline-row-label">Mapping</span>
+            <span class="timeline-row-value accent">MITRE</span>
           </div>
           <div class="timeline-row">
-            <span class="timeline-row-label">Output</span>
-            <span class="timeline-row-value">Actionable</span>
+            <span class="timeline-row-label">Format</span>
+            <span class="timeline-row-value">Audit-ready</span>
           </div>
         </div>
       </div>
@@ -1555,18 +1703,18 @@ img { display: block; max-width: 100%; }
     <div class="timeline-side">
       <div class="timeline-side-block">
         <span class="label">// Stack</span>
-        <h4>Python</h4>
-        <p>Advanced Python implementation with NLP integration driving the multi-agent architecture.</p>
+        <h4>149 Modules</h4>
+        <p>Approximately 70,500 lines of Python across agents, SDK infrastructure, tool wrappers, memory, and reporting.</p>
       </div>
       <div class="timeline-side-block">
         <span class="label">// Intelligence</span>
-        <h4>3 Models</h4>
-        <p>Intelligent Model Orchestrator supports DeepSeek, Gemini, and Dolphin models for dynamic LLM routing.</p>
+        <h4>10 Agents</h4>
+        <p>Specialists for recon, web security, red teaming, AppSec, bug bounty, CTF, DFIR, adversarial testing, and reporting.</p>
       </div>
       <div class="timeline-side-block">
         <span class="label">// Security</span>
-        <h4>Cross-Platform</h4>
-        <p>Rigorous tool validation ensures safe execution of agentic operations across diverse environments.</p>
+        <h4>Operator Control</h4>
+        <p>Scope enforcement, visible commands, replayable logs, and approval-gated exploitation keep every action accountable.</p>
       </div>
     </div>
   </div>
@@ -1583,16 +1731,20 @@ img { display: block; max-width: 100%; }
         </div>
         <div style="display:flex;gap:36px;flex-wrap:wrap">
           <div>
-            <div class="label" style="color:rgba(255,255,255,0.6)">Models</div>
-            <div style="font-family:'DotGothic16';font-size:36px;color:#fff;line-height:1">3</div>
+            <div class="label" style="color:rgba(255,255,255,0.6)">Modules</div>
+            <div style="font-family:'DotGothic16';font-size:36px;color:#fff;line-height:1">149</div>
           </div>
           <div>
-            <div class="label" style="color:rgba(255,255,255,0.6)">Language</div>
-            <div style="font-family:'DotGothic16';font-size:36px;color:#fff;line-height:1">PY</div>
+            <div class="label" style="color:rgba(255,255,255,0.6)">Lines</div>
+            <div style="font-family:'DotGothic16';font-size:36px;color:#fff;line-height:1">70.5K</div>
           </div>
           <div>
-            <div class="label" style="color:rgba(255,255,255,0.6)">Focus</div>
-            <div style="font-family:'DotGothic16';font-size:36px;color:#fff;line-height:1">RT</div>
+            <div class="label" style="color:rgba(255,255,255,0.6)">Tools</div>
+            <div style="font-family:'DotGothic16';font-size:36px;color:#fff;line-height:1">60+</div>
+          </div>
+          <div>
+            <div class="label" style="color:rgba(255,255,255,0.6)">Agents</div>
+            <div style="font-family:'DotGothic16';font-size:36px;color:#fff;line-height:1">10</div>
           </div>
         </div>
       </div>
@@ -1609,8 +1761,9 @@ img { display: block; max-width: 100%; }
     <h2 class="pixel" id="ctaHeadline">READY?</h2>
     <div class="cta-actions">
       <a href="mailto:mr.waleed902@gmail.com" class="btn-pill-lg">Send Email →</a>
-      <a href="https://linkedin.com/in/waleed902" target="_blank" class="btn-ghost-lg">LinkedIn</a>
-      <a href="https://github.com/Waleed902" target="_blank" class="btn-ghost-lg">GitHub</a>
+      <a href="assets/Muhammad_Waleed_Resume.pdf" download class="btn-ghost-lg">Download Résumé ↓</a>
+      <a href="https://linkedin.com/in/waleed902" target="_blank" rel="noopener noreferrer" class="btn-ghost-lg">LinkedIn</a>
+      <a href="https://github.com/Waleed902" target="_blank" rel="noopener noreferrer" class="btn-ghost-lg">GitHub</a>
     </div>
     <div class="cta-meta">
       <div>
@@ -1648,162 +1801,200 @@ img { display: block; max-width: 100%; }
 <script type="module">
 import * as THREE from 'three';
 
-// ============ NODE NETWORK GRAPHIC ============
+// ============ 3D OPERATOR LAPTOP ============
 const container = document.getElementById('nodeCanvas');
 if (container) {
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-  camera.position.set(0, 0, 6.2);
-  
+  const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
+  camera.position.set(0, 0.4, 8.1);
+
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setClearColor(0x000000, 0);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
   container.appendChild(renderer.domElement);
-  
+  container.classList.add('webgl-ready');
+
+  const laptop = new THREE.Group();
+  laptop.rotation.set(-0.08, -0.34, 0);
+  scene.add(laptop);
+
   function resize() {
     const w = Math.max(1, container.clientWidth);
     const h = Math.max(1, container.clientHeight);
     renderer.setSize(w, h);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
+    laptop.scale.setScalar(w < 330 ? 0.78 : w < 430 ? 0.88 : 1);
   }
   resize();
   window.addEventListener('resize', resize);
-  
-  const group = new THREE.Group();
-  scene.add(group);
-  
-  // Chip positions on a sphere
-  const chipPositions = [];
-  const chipCount = 14;
-  for (let i = 0; i < chipCount; i++) {
-    const r = 1.5 + Math.random() * 0.9;
-    const theta = Math.random() * Math.PI * 2;
-    const phi = Math.acos(Math.random() * 2 - 1);
-    chipPositions.push(new THREE.Vector3(
-      r * Math.sin(phi) * Math.cos(theta),
-      r * Math.sin(phi) * Math.sin(theta),
-      r * Math.cos(phi)
-    ));
+
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x4a1a00, 2.0));
+  const keyLight = new THREE.DirectionalLight(0xffffff, 2.6);
+  keyLight.position.set(4, 5, 5);
+  scene.add(keyLight);
+  const orangeLight = new THREE.PointLight(0xff5a00, 16, 8, 2);
+  orangeLight.position.set(-2.2, 0.4, 2.2);
+  scene.add(orangeLight);
+
+  const shellMat = new THREE.MeshStandardMaterial({ color: 0x141414, roughness: 0.38, metalness: 0.82 });
+  const deckMat = new THREE.MeshStandardMaterial({ color: 0x202020, roughness: 0.5, metalness: 0.65 });
+  const keyMat = new THREE.MeshStandardMaterial({ color: 0x080808, roughness: 0.72, metalness: 0.25 });
+  const accentMat = new THREE.MeshBasicMaterial({ color: 0xff5a00 });
+
+  function addEdges(mesh, opacity = 0.72) {
+    const edges = new THREE.LineSegments(
+      new THREE.EdgesGeometry(mesh.geometry),
+      new THREE.LineBasicMaterial({ color: 0xff5a00, transparent: true, opacity })
+    );
+    mesh.add(edges);
   }
-  
-  // Connections
-  const lineGeo = new THREE.BufferGeometry();
-  const linePoints = [];
-  for (let i = 0; i < chipPositions.length; i++) {
-    for (let j = i + 1; j < chipPositions.length; j++) {
-      const d = chipPositions[i].distanceTo(chipPositions[j]);
-      if (d < 2.4) {
-        linePoints.push(chipPositions[i].x, chipPositions[i].y, chipPositions[i].z);
-        linePoints.push(chipPositions[j].x, chipPositions[j].y, chipPositions[j].z);
-      }
+
+  // Base, keyboard deck, and hinge.
+  const base = new THREE.Mesh(new THREE.BoxGeometry(4.25, 0.22, 2.55), shellMat);
+  base.position.set(0, -0.95, 0.38);
+  addEdges(base, 0.58);
+  laptop.add(base);
+
+  const deck = new THREE.Mesh(new THREE.BoxGeometry(3.98, 0.07, 2.28), deckMat);
+  deck.position.set(0, -0.80, 0.34);
+  laptop.add(deck);
+
+  const hinge = new THREE.Mesh(new THREE.CylinderGeometry(0.10, 0.10, 3.75, 18), shellMat);
+  hinge.rotation.z = Math.PI / 2;
+  hinge.position.set(0, -0.77, -0.78);
+  laptop.add(hinge);
+
+  // Keyboard built as one instanced mesh for performance.
+  const keyGeometry = new THREE.BoxGeometry(0.30, 0.045, 0.22);
+  const keys = new THREE.InstancedMesh(keyGeometry, keyMat, 67);
+  const matrix = new THREE.Matrix4();
+  let keyIndex = 0;
+  for (let row = 0; row < 6; row++) {
+    const cols = row === 5 ? 8 : row === 0 ? 11 : 12;
+    const offset = row === 5 ? -1.16 : -(cols - 1) * 0.165;
+    for (let col = 0; col < cols; col++) {
+      const width = row === 5 && col === 3 ? 2.25 : 1;
+      matrix.compose(
+        new THREE.Vector3(offset + col * 0.33, -0.735, -0.40 + row * 0.30),
+        new THREE.Quaternion(),
+        new THREE.Vector3(width, 1, 1)
+      );
+      keys.setMatrixAt(keyIndex++, matrix);
     }
   }
-  lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePoints, 3));
-  const lineMat = new THREE.LineBasicMaterial({
-    color: 0xff5a00, transparent: true, opacity: 0.28
-  });
-  const lines = new THREE.LineSegments(lineGeo, lineMat);
-  group.add(lines);
-  
-  const animChips = [];
-  chipPositions.forEach((pos) => {
-    // Solid chip
-    const chipGeo = new THREE.OctahedronGeometry(0.10, 0);
-    const chipMat = new THREE.MeshBasicMaterial({ color: 0xff5a00 });
-    const chip = new THREE.Mesh(chipGeo, chipMat);
-    chip.position.copy(pos);
-    chip.userData.phase = Math.random() * Math.PI * 2;
-    group.add(chip);
-    animChips.push(chip);
-    
-    // Glow halo
-    const haloGeo = new THREE.SphereGeometry(0.26, 16, 16);
-    const haloMat = new THREE.MeshBasicMaterial({
-      color: 0xff5a00, transparent: true, opacity: 0.18,
-      blending: THREE.AdditiveBlending, depthWrite: false
-    });
-    const halo = new THREE.Mesh(haloGeo, haloMat);
-    halo.position.copy(pos);
-    halo.userData.phase = chip.userData.phase;
-    group.add(halo);
-    animChips.push(halo);
-    
-    // Wireframe outer
-    const wireGeo = new THREE.OctahedronGeometry(0.17, 0);
-    const wireMat = new THREE.MeshBasicMaterial({
-      color: 0xff5a00, wireframe: true, transparent: true, opacity: 0.55
-    });
-    const wire = new THREE.Mesh(wireGeo, wireMat);
-    wire.position.copy(pos);
-    wire.userData.phase = chip.userData.phase + 0.7;
-    wire.userData.isWire = true;
-    group.add(wire);
-    animChips.push(wire);
-  });
-  
-  // Outer bounding rings
-  const ringMat = new THREE.MeshBasicMaterial({ color: 0x111111, transparent: true, opacity: 0.25 });
-  const ring1 = new THREE.Mesh(new THREE.TorusGeometry(2.7, 0.005, 8, 64), ringMat);
-  ring1.rotation.x = Math.PI / 2;
-  group.add(ring1);
-  const ring2 = new THREE.Mesh(new THREE.TorusGeometry(2.7, 0.005, 8, 64), ringMat);
-  ring2.rotation.y = Math.PI / 2;
-  group.add(ring2);
-  
-  // Mouse parallax
-  let targetRotX = 0, targetRotY = 0;
+  keys.count = keyIndex;
+  laptop.add(keys);
+
+  const trackpad = new THREE.Mesh(
+    new THREE.BoxGeometry(1.30, 0.025, 0.68),
+    new THREE.MeshStandardMaterial({ color: 0x2c2c2c, roughness: 0.35, metalness: 0.75 })
+  );
+  trackpad.position.set(0, -0.735, 0.95);
+  addEdges(trackpad, 0.32);
+  laptop.add(trackpad);
+
+  const lid = new THREE.Group();
+  lid.position.set(0, -0.76, -0.78);
+  lid.rotation.x = -0.12;
+  laptop.add(lid);
+
+  // The lid follows the source image's wide aspect ratio so the interface is
+  // shown in full without stretching or cutting off the command reference.
+  const screenBack = new THREE.Mesh(new THREE.BoxGeometry(4.18, 2.18, 0.18), shellMat);
+  screenBack.position.set(0, 1.10, 0);
+  addEdges(screenBack, 0.78);
+  lid.add(screenBack);
+
+  const screenMaterial = new THREE.MeshBasicMaterial({ color: 0x050505, toneMapped: false });
+  const screen = new THREE.Mesh(
+    new THREE.PlaneGeometry(3.88, 1.83),
+    screenMaterial
+  );
+  screen.position.set(0, 1.10, 0.101);
+  lid.add(screen);
+
+  const textureLoader = new THREE.TextureLoader();
+  textureLoader.load(
+    'assets/cyber-copilot-dashboard.png',
+    texture => {
+      texture.colorSpace = THREE.SRGBColorSpace;
+      texture.minFilter = THREE.LinearMipmapLinearFilter;
+      texture.magFilter = THREE.LinearFilter;
+      texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      screenMaterial.map = texture;
+      screenMaterial.needsUpdate = true;
+    },
+    undefined,
+    () => { screenMaterial.color.setHex(0x151515); }
+  );
+
+  const cameraDot = new THREE.Mesh(new THREE.SphereGeometry(0.025, 10, 10), accentMat);
+  cameraDot.position.set(0, 2.10, 0.105);
+  lid.add(cameraDot);
+
+  // Status lamps and a subtle operator-grid floor.
+  const statusLamp = new THREE.Mesh(new THREE.SphereGeometry(0.055, 16, 16), accentMat);
+  statusLamp.position.set(1.78, -0.72, 1.42);
+  laptop.add(statusLamp);
+  const grid = new THREE.GridHelper(8, 16, 0xff5a00, 0x777777);
+  grid.position.y = -1.22;
+  grid.material.transparent = true;
+  grid.material.opacity = 0.18;
+  scene.add(grid);
+
+  const dataRing = new THREE.Mesh(
+    new THREE.TorusGeometry(2.75, 0.012, 8, 96),
+    new THREE.MeshBasicMaterial({ color: 0xff5a00, transparent: true, opacity: 0.34 })
+  );
+  dataRing.rotation.x = Math.PI / 2;
+  dataRing.position.y = -0.95;
+  scene.add(dataRing);
+
+  // Mouse parallax keeps the model tactile without turning it into a toy.
+  let targetRotX = -0.08;
+  let targetRotY = -0.34;
   container.addEventListener('mousemove', e => {
     const r = container.getBoundingClientRect();
     const mx = ((e.clientX - r.left) / r.width - 0.5) * 2;
     const my = ((e.clientY - r.top) / r.height - 0.5) * 2;
-    targetRotY = mx * 0.4;
-    targetRotX = my * 0.3;
+    targetRotY = -0.34 + mx * 0.22;
+    targetRotX = -0.08 - my * 0.10;
   });
-  container.addEventListener('mouseleave', () => { targetRotX = 0; targetRotY = 0; });
-  
+  container.addEventListener('mouseleave', () => { targetRotX = -0.08; targetRotY = -0.34; });
+
   let isVisible = true;
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => isVisible = e.isIntersecting);
   });
   io.observe(container);
-  
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clock = new THREE.Clock();
   function animate() {
     requestAnimationFrame(animate);
     if (!isVisible) return;
     const t = clock.getElapsedTime();
-    
-    animChips.forEach(c => {
-      if (c.userData.phase !== undefined) {
-        const s = 1 + Math.sin(t * 2 + c.userData.phase) * 0.3;
-        c.scale.setScalar(s);
-        if (c.userData.isWire) {
-          c.rotation.x = t * 0.6 + c.userData.phase;
-          c.rotation.y = t * 0.8 + c.userData.phase;
-        }
-        if (c.material && c.material.opacity !== undefined && c.material.blending === THREE.AdditiveBlending) {
-          c.material.opacity = 0.14 + Math.sin(t * 2 + c.userData.phase) * 0.10;
-        }
-      }
-    });
-    
-    group.rotation.y += (targetRotY + t * 0.05 - group.rotation.y) * 0.05;
-    group.rotation.x += (targetRotX - group.rotation.x) * 0.05;
-    
-    ring1.rotation.z = t * 0.1;
-    ring2.rotation.z = -t * 0.15;
-    
+
+    laptop.rotation.y += (targetRotY - laptop.rotation.y) * 0.055;
+    laptop.rotation.x += (targetRotX - laptop.rotation.x) * 0.055;
+    if (!prefersReduced) {
+      laptop.position.y = Math.sin(t * 0.85) * 0.055;
+      dataRing.rotation.z = t * 0.09;
+      const glow = 0.72 + Math.sin(t * 4.2) * 0.28;
+      statusLamp.scale.setScalar(glow);
+    }
     renderer.render(scene, camera);
   }
   animate();
-  
+
   // Telemetry readout
   const nodeTime = document.getElementById('nodeTime');
   const nodePulse = document.getElementById('nodePulse');
   setInterval(() => {
     if (nodeTime) nodeTime.textContent = new Date().toTimeString().slice(0, 8);
-    if (nodePulse) nodePulse.textContent = 'PULSE ' + (0.70 + Math.random() * 0.30).toFixed(2);
+    if (nodePulse) nodePulse.textContent = `AGENTS 10 // ${Math.random() > 0.12 ? 'READY' : 'SYNC'}`;
   }, 1000);
 }
 </script>
@@ -1875,15 +2066,21 @@ if (reduceMotion) {
   intro.style.display = 'none';
   heroHeadline.textContent = 'OPERATIONS';
 } else {
+  let introFinished = false;
+  const finishIntro = () => {
+    if (introFinished) return;
+    introFinished = true;
+    intro.style.display = 'none';
+    heroHeadline.textContent = 'OPERATIONS';
+  };
   glitchText(introName, 'MUHAMMAD WALEED', 1400);
   gsap.to(introBar, { width: '100%', duration: 1.6, ease: 'power2.out', delay: 0.2 });
   gsap.to(intro, {
     opacity: 0, duration: 0.7, delay: 2.0, ease: 'power2.inOut',
-    onComplete: () => {
-      intro.style.display = 'none';
-      glitchText(heroHeadline, 'OPERATIONS', 1200);
-    }
+    onComplete: finishIntro
   });
+  // Guarantees access to the portfolio if animation frames are heavily throttled.
+  window.setTimeout(finishIntro, 3200);
 }
 
 // ============ HEADLINE GLITCH ON SCROLL ============
@@ -1942,33 +2139,52 @@ gsap.utils.toArray('.cert').forEach((c, i) => {
 
 // ============ FILTER TABS ============
 const filterTabs = document.querySelectorAll('.filter-tab');
+const cards = [...document.querySelectorAll('.bento .card')];
+const searchInput = document.getElementById('searchInput');
+const entryCount = document.getElementById('entryCount');
+let activeFilter = 'all';
+
+function applyCardFilters(animate = false) {
+  const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+  let visible = 0;
+  cards.forEach(card => {
+    const categoryMatch = activeFilter === 'all' || card.dataset.category === activeFilter;
+    const searchMatch = !query || card.textContent.toLowerCase().includes(query);
+    const match = categoryMatch && searchMatch;
+    gsap.killTweensOf(card);
+    if (match) {
+      visible++;
+      card.style.display = '';
+      if (animate && !reduceMotion) {
+        gsap.fromTo(card, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.42, ease: 'power2.out' });
+      } else {
+        card.style.opacity = '1';
+        card.style.transform = '';
+      }
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  if (entryCount) entryCount.textContent = `${visible} ${visible === 1 ? 'Item' : 'Items'}`;
+  ScrollTrigger.refresh();
+}
+
 filterTabs.forEach(tab => {
   tab.addEventListener('click', () => {
-    filterTabs.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    const filter = tab.dataset.filter;
-    document.querySelectorAll('.bento .card').forEach(card => {
-      const match = filter === 'all' || card.dataset.category === filter;
-      if (match) {
-        card.style.display = '';
-        gsap.fromTo(card, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' });
-      } else {
-        gsap.to(card, { opacity: 0, duration: 0.25, onComplete: () => { card.style.display = 'none'; }});
-      }
+    filterTabs.forEach(t => {
+      t.classList.remove('active');
+      t.setAttribute('aria-pressed', 'false');
     });
+    tab.classList.add('active');
+    tab.setAttribute('aria-pressed', 'true');
+    activeFilter = tab.dataset.filter;
+    applyCardFilters(true);
   });
 });
 
 // ============ SEARCH ============
-const searchInput = document.getElementById('searchInput');
 if (searchInput) {
-  searchInput.addEventListener('input', e => {
-    const q = e.target.value.toLowerCase().trim();
-    document.querySelectorAll('.bento .card').forEach(card => {
-      const text = card.textContent.toLowerCase();
-      card.style.display = text.includes(q) ? '' : 'none';
-    });
-  });
+  searchInput.addEventListener('input', () => applyCardFilters(false));
 }
 
 // ============ MAGNETIC HOVER ============
